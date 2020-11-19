@@ -1,0 +1,71 @@
+{
+  "name": "gisto",
+  "version": "1.0.0",
+  "description": "Create and access gists straight to your clipboard",
+  "keywords": [
+    "github",
+    "gist",
+    "cli"
+  ],
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "gisto": "./build/index.js"
+  },
+  "_moduleAliases": {
+    "@": "./build"
+  },
+  "main": "build/index.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "clipboardy": "^2.3.0",
+    "inquirer": "^7.3.3",
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.1",
+    "utils": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/clipboard": "^2.0.1",
+    "@types/compression": "^1.7.0",
+    "@types/express": "^4.17.8",
+    "@types/inquirer": "^7.3.1",
+    "@types/jest": "^24.9.1",
+    "@types/morgan": "^1.9.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.2",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.3.0",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.7"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\"",
+    "test:live": "jest --watch",
+    "build": "rm -rf ./build && tsc -p .",
+    "start": "npm run build && node -r ts-node/register -r tsconfig-paths/register ./build/index.js",
+    "start:local": "node ./build/index.js",
+    "start:up": "sh ./src/config/init.sh && npm run build && npm i -g ./",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' -r tsconfig-paths/register src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealtimhawkins/"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "author": "Tim Hawkins",
+  "license": "MIT"
+}
